@@ -1,0 +1,51 @@
+@import '../../components/button/button.scss';
+
+.modern {
+  background-color: #f5f5f5;
+  padding: 50px 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .modern__wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .modern__body {
+        max-width: 500px;
+        margin-right: 30px;
+
+        .modern__subtitle {
+          font-size: 20px;
+          color: #646464;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+
+        .modern__title {
+          font-size: 72px;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+
+        .modern__description {
+          font-size: 18px;
+          color: #646464;
+          margin-bottom: 30px;
+        }
+      }
+
+      .modern__img {
+        flex-shrink: 0;
+        max-width: 600px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+}

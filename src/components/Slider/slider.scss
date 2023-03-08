@@ -1,0 +1,76 @@
+.testimonials__slider {
+    position: relative;
+    padding-top: 99px;
+    transform: translate(0%);
+    height: 200px;
+    .testimonials__slider-item {
+        display: flex;
+        width: 521px;
+        background-image: url(../../assets/images/commas.png);
+        background-repeat:no-repeat;
+        background-position: top right;
+        padding: 10px;
+        box-shadow: 0px 6px 20px 1px #6464644a;
+        border-top-left-radius: 40%;
+        border-bottom-right-radius: 40%;
+
+        .photo__info { 
+            width: 350px;
+            margin-left: 21px;
+            padding: 0;
+
+            .photo__title {
+                font-size: 24px;
+                font-weight: 700;
+                margin: auto;
+                color: #212121;
+            }
+
+            .photo__subtitle {
+                display: inline;
+                font-size: 16px;
+                font-weight: 400;
+                color: #646464;
+            }
+
+            .photo__descr {
+                font-size: 16px;
+                color: #646464;
+            }
+        }
+    }
+    .slick-arrow {
+      position: absolute;
+      top: -110px;
+      &.slick-prev {
+        left: 93%;
+        background: transparent;
+      }
+      &.slick-next {
+        right: 0%;
+      }
+      img {
+        width: 60%;
+        height: 60%;
+        background-color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 8px;
+        transform: translate(50%);
+        box-shadow: 0px 6px 10px 2px #6464644a;
+        transition: background-color 0.3s ease;
+        &:hover {
+            background-color: #37806B;
+            color: #fff;
+      }
+    }
+    .slick-list {
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      height: 200px;
+    }
+    .slick-slide {
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+}}

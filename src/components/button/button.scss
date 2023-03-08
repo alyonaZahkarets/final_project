@@ -1,0 +1,31 @@
+@mixin button ($color, $background-color) {
+    background-color: $background-color;
+    color: $color;
+    border: none;
+    border-top-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    a {
+      text-decoration: none;
+      color: $color;
+    }
+  
+    &:hover {
+      background-color: darken($background-color, 10%);
+      a {
+        transition: 0.3s ease;
+      }
+    }
+  }
+  
+  .button {
+    @include button(#fff, #37806B);
+    transition: 0.3s ease;
+  }
+
+
+
+
+   
