@@ -1,21 +1,22 @@
 import React from 'react';
 import { useRef, useEffect } from 'react';
 import './latestNews.scss';
+import Button from '../../components/button/button';
 
 const LatestNews = () => {
   const newsList = [
     {
       id: 1,
-      title: 'Новина 1',
-      description: 'Опис новини 1',
-      additionalInfo: 'Додаткова інформація про новину 1',
+      title: '2020 Interior Design Trends',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua.',
+      additionalInfo: '',
       imageUrl: require('../../assets/images/news1.png'),
     },
     {
       id: 2,
-      title: 'Новина 2',
-      description: 'Опис новини 2',
-      additionalInfo: 'Додаткова інформація про новину 2',
+      title: '28 Notable Product at ARC Interior Design',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua.',
+      additionalInfo: '',
       imageUrl: require('../../assets/images/news2.png'),
     },
 
@@ -24,16 +25,17 @@ const LatestNews = () => {
 
   const latestNewsRef = useRef(null);
 
+
+
   useEffect(() => {
-    const latestNewsElement = latestNewsRef.current;
+    const latestNews = latestNewsRef.current;
+    const latestNewsTop = latestNews.getBoundingClientRect().top;
+    const latestNewsHeight = latestNews.offsetHeight;
 
     const handleScroll = () => {
-      const top = latestNewsElement.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-
-      if (top < windowHeight) {
-        latestNewsElement.classList.add('animated');
-        window.removeEventListener('scroll', handleScroll);
+      const scrollPosition = window.scrollY + window.innerHeight;
+      if (scrollPosition > latestNewsTop + latestNewsHeight * 0.8) {
+        latestNews.classList.add('active');
       }
     };
 
@@ -46,23 +48,29 @@ const LatestNews = () => {
 
 
 
-  return (
-    <div className='container'>
-    <div ref={latestNewsRef} className="latest-news">
-      {newsList.map((news, index) => (
-        <div key={news.id} className="latest-news-item">
-             <div className='latest-news-item-move'> 
+          return (
+          <div className='container'>
+          <div ref={latestNewsRef} className="latest-news">
+          {newsList.map((news, index) => (
+          <div key={news.id} className="latest-news-item">
+          <div className='latest-news-item-move'>
           <img src={news.imageUrl} alt={news.title} />
-          <h3>{news.title}</h3>
-          <p>{news.description}</p>
-             </div>
+          <h3 className='latest-news-item-title'>{news.title}</h3>
+          <p className='latest-news-item-descr'>{news.description}</p>
+          </div>
           <p>{news.additionalInfo}</p>
-          <button>Continue reading</button>
-        </div>
-      ))}
-      </div>
-    </div>
-  );
-};
-
-export default LatestNews;
+          <Button to="/" className='button'>CONTINUE READING....</Button>
+          </div>
+          ))}
+          </div>
+          </div>
+          );
+          };
+          
+          export default LatestNews;
+          
+          
+          
+          
+          
+          

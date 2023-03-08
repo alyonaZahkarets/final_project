@@ -1,6 +1,7 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    transition: margin-top 0.5s ease-in-out;
 }
 a {
     text-decoration: none;
