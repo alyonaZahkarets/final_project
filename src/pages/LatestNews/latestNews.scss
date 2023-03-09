@@ -1,22 +1,40 @@
 @import '../../components/button/button.scss';
 
+.latest {
+  margin: 0 auto;
+  padding-top: 100px;
+  background-color: #f5f5f5;
+}
+.latest-subtitle {
+  font-size: 20px;
+  color: #646464;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.latest-title {
+  font-size: 72px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .latest-news {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items:center;
   padding-top: 50px;
-  transform: translate(0px, 120%);
-  opacity: 0;
-  transition: all 0.8s ease 0s;
 
   .latest-news-item{
     margin-bottom: 40px;
+    gap:20px;
 
     img {
-       width: 80%;  
+       width: 100%;  
       }
     .latest-news-item-move{
-      max-width: 600px;
+      max-width: 500px;
       &:hover {
         transform: scale(1.1);
         transition: 1s ease-in-out;
@@ -30,106 +48,11 @@
         font-size: 14px;
         font-weight: 400;
         color: #646464;
-        margin-bottom: 45px;
+        margin-bottom: 65px;
       }
     }
   }
 
 
 }
-.latest-news.active {
-  transform: translate(0px, 0px);
-  opacity: 1;
-}
 
-// .latest-news-item {
-//   width: calc(50% - 20px);
-//   margin-bottom: 40px;
-//   opacity: 0;
-//   transition: opacity 1.5s ease-in-out;
-  
-//   &.animated.active {
-//     opacity: 1;
-//   }
-
-//   img {
-//     width: 100%;
-//   }
-
-//   h3 {
-//     margin-top: 30px;
-//     margin-bottom: 20px;
-//     font-size: 24px;
-//     line-height: 1.2;
-//     font-weight: bold;
-//   }
-
-//   p {
-//     margin-bottom: 30px;
-//     font-size: 16px;
-//     line-height: 1.5;
-//     color: #666;
-//   }
-
-// }
-// .latest-news-item.animated-active {
-//   opacity: 1;
-//   }
-
-// @keyframes slide-up {
-// from {
-// transform: translateY(20px);
-// opacity: 0;
-// }
-// to {
-// transform: translateY(0);
-// opacity: 1;
-// }
-// }
-
-// .latest-news-item.animated-active {
-// animation-name: slide-up;
-// animation-duration: 0.5s;
-// animation-fill-mode: forwards;
-// }
-
-// /* Add a class to the container when it intersects with the viewport */
-// .latest-news-container.visible {
-// visibility: visible;
-// animation-name: slide-up;
-// animation-duration: 1s;
-// animation-fill-mode: forwards;
-// animation-delay: 0.5s;
-// }
-
-// /* Hide the container initially */
-// .latest-news-container {
-// visibility: hidden;
-// opacity: 0;
-// }
-
-// /* Add styles to the header to avoid overlap with LatestNews section */
-// header {
-// position: fixed;
-// top: 0;
-// left: 0;
-// right: 0;
-// z-index: 1;
-// background-color: #fff;
-// box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-// padding: 20px;
-// }
-
-// .container {
-// margin-top: 100px;
-// }
-
-// /* Add a margin-top to LatestNews section when the header is visible */
-// .container.visible {
-// margin-top: 180px;
-// }
-
-// /* Add a transition to the margin-top property to create a smooth effect */
-// .container {
-// transition: margin-top 0.5s ease-in-out;
-// }

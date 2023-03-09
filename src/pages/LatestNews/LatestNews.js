@@ -1,5 +1,6 @@
 import React from 'react';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
+import { motion } from "framer-motion";
 import './latestNews.scss';
 import Button from '../../components/button/button';
 
@@ -22,55 +23,49 @@ const LatestNews = () => {
 
   ];
 
-
+const animatinItem = {
+  hidden: {
+    x: -100,
+    opacity: 0,
+  },
+  visible: custom =>({
+    x: 0,
+    opacity: 1,
+    transition: {delay: 0.5, easing: 'ease'},
+  }),
+}
   const latestNewsRef = useRef(null);
 
+return (
+  <motion.div 
+  initial="hidden"
+  whileInView= "visible"
+  viewport={{amount: 0.3}}
+  className='latest'>
+  <div className='container'>
+  <div className='latest-subtitle'>
+    LETEST NEWS
+    </div>
+  <div className='latest-title'>
+    From Our Blog
+  </div>
+    <div ref={latestNewsRef} className="latest-news">
+      {newsList.map((news, index) => (
+      <motion.div variants={animatinItem} key={news.id} className="latest-news-item">
+        <div className='latest-news-item-move'>
+            <img src={news.imageUrl} alt={news.title} />
+            <motion.h3 custom={8} variants={animatinItem}className='latest-news-item-title'>{news.title}</motion.h3>
+            <p className='latest-news-item-descr'>{news.description}</p>
+        </div>
+            <p>{news.additionalInfo}</p>
+            <Button to="/" className='button'>CONTINUE READING....</Button>
+      </motion.div>
+))}
+</div>
+</div>
+</motion.div>
+);
+};
 
+export default LatestNews;
 
-  useEffect(() => {
-    const latestNews = latestNewsRef.current;
-    const latestNewsTop = latestNews.getBoundingClientRect().top;
-    const latestNewsHeight = latestNews.offsetHeight;
-
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      if (scrollPosition > latestNewsTop + latestNewsHeight * 0.8) {
-        latestNews.classList.add('active');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-
-
-          return (
-          <div className='container'>
-          <div ref={latestNewsRef} className="latest-news">
-          {newsList.map((news, index) => (
-          <div key={news.id} className="latest-news-item">
-          <div className='latest-news-item-move'>
-          <img src={news.imageUrl} alt={news.title} />
-          <h3 className='latest-news-item-title'>{news.title}</h3>
-          <p className='latest-news-item-descr'>{news.description}</p>
-          </div>
-          <p>{news.additionalInfo}</p>
-          <Button to="/" className='button'>CONTINUE READING....</Button>
-          </div>
-          ))}
-          </div>
-          </div>
-          );
-          };
-          
-          export default LatestNews;
-          
-          
-          
-          
-          
-          
